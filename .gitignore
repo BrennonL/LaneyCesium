@@ -10,3 +10,6 @@ venv.bak/
 
 # Cesium and modules
 node_modules/
+
+# Build
+dist/
