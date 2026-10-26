@@ -44,8 +44,8 @@ export function toggleViews(event, viewer, geosSatEntity, lemurSatEntity) {
   } else if (event == "geos") {
     setViewPoint("geos-view", viewer, geosSatEntity, lemurSatEntity);
   } else if (event == "singapore") {
-    setViewPoint("douala-gnd", viewer, geosSatEntity, lemurSatEntity);
-  } else if (event == "douala") {
     setViewPoint("singapore-gnd", viewer, geosSatEntity, lemurSatEntity);
+  } else if (event == "douala") {
+    setViewPoint("douala-gnd", viewer, geosSatEntity, lemurSatEntity);
   }
 }
