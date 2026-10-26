@@ -4,7 +4,6 @@
   "description": "Simulation of a possible geocentric lemur satellite and the GEOS 14 satellite. This shows when GEOS 14 comes into view of a zenith facing FaintStar2 camera on the lemur satellite.",
   "license": "ISC",
   "author": "Brennon Laney",
-  "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
