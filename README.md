@@ -1,6 +1,10 @@
 # Introduction
 
-A simulated geocentric lemur satellite with a FaintStar2 camera (with a FOV angle 
+Due to increasingly large number of satellites
+
+Many Satellites utilized AI models for filtering out repetative data, allowing scientists and engineers to focus on mission critical information. There are two options for these models; they could either be trained on Earth on synthetic data or in space. My goal is to utilize synthetic data of satellites obvserving the Earth and other satellites, to train these models. For the purpose of the Cesium certificate I produced a simulation of two satellites showcasing field of view and downlink connections.
+
+A simulated geocentric lemur satellite with a FaintStar2 camera (FOV angle 
 of $5.5 \degree \times 5.5 \degree$) monitoring in the zenith direction. When 
 the satellite GEOS 14 falls into view of the lemur satellite it is highlighted 
 in green. The ground stations in Douala and Singapore added and view can switch
@@ -23,8 +27,29 @@ FaintStar2 camera FOV.
 [cesium assets](https://github.com/BrennonL/cesiumAssets) and follow the 
 download instructions listed on the `README.md` file.
 
+2. Create a `.env` file in the [current directory](./). Copy and paste the
+following contents into that file:
 
-2. Ensure that you have Cesium's node_modules by running:
+```.env
+WEBPACK_CESIUM_ION_TOKEN="..."
+
+# 3D assets
+WEBPACK_CUBE_SAT_ASSET_ID=<3u_cubesat asset id>
+WEBPACK_GEOS_SAT_ASSET_ID=<GOES-R asset id>
+
+# Tilesets
+WEBPACK_DOUALA_GND_ASSET_ID=<douala_cameroon_lemur_gnd asset id>
+WEBPACK_SINGAPORE_GND_ASSET_ID=<singapore_singapore_lemur_gnd>
+WEBPACK_OSM_BUILDINGS_TILESET_ID=<Cesium OSM Buildings asset id>
+
+```
+
+Then fill in the place holders with your specified Cesium Ion
+information. The asset ids come from the 3d models you dowloaded in the
+previous step. OSM buildings are included in all Cesium Ion accounts.
+If it isn't, search it in Asset Depot and download it.
+
+3. Ensure that you have Cesium's node_modules by running:
 
 ```bash
 npm run build
