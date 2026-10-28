@@ -67,6 +67,29 @@ In the top left corner of the screen there should be a selection list and a butt
 satellites and ground stations. The `Toggle View` button turns on and off the 
 pyramid geomitry above the lemur satellite showing the FaintStar FOV.
 
+# Project Architecture
+
+In the [current directory](./) there is the [czml](./czml/) which contains the
+czml file generated for this project. The project's src contents are divided 
+into 3 parts: 
+[`cesiumIon`](./src/cesiumIon/), [`scene`](./src/scene/), and 
+[`utilities`](./src/utilities/). Within each folder there is a README.md 
+providing more detail about the folder's contents. These all feed into the [`index.js`](./src/index.js) and [`index.html`](./src/index.html) files.
+
+```bash
+src
+├── cesiumIon
+│   └── loaders.js
+├── css
+│   └── main.css
+├── index.html
+├── index.js
+├── scene
+│   ├── utilities.js
+│   └── view.js
+└── utilities
+    └── utilities.js
+```
 
 # Sources
 - [Webpack and Cesium Ion](https://cesium.com/blog/2024/02/13/configuring-vite-or-webpack-for-cesiumjs/)
