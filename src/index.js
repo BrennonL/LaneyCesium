@@ -37,7 +37,7 @@ const viewer = new Viewer("cesiumContainer", {
 });
 
 
-// Initialize datasource
+// Initialize czml datasource
 const ds = await CzmlDataSource.load("../czml/lemur-GEOS.czml");
 viewer.dataSources.add(ds);
 
@@ -64,19 +64,19 @@ const tileset = viewer.scene.primitives.add(
 
 
 // Color the groundstations
-tileset.style = new Cesium3DTileStyle({
-  defines: {
-    distanceFromComplex:
-    "distance(vec2(${feature['cesium#longitude']}, ${feature['cesium#latitude']}), vec2(144.96007, -37.82249))",
-  },
-  color: {
-    conditions: [
-      ["${wikidata} === 'Q60046490'", "color('#d65c5c')"],
-      ["${elementId} === 392375195", "color('#d65c5c')"],
-    ],
-  },
-  show: "${feature['building']} !== 'residential' || ${feature['building']} !== 'apartments'",
-});
+// tileset.style = new Cesium3DTileStyle({
+//   defines: {
+//     distanceFromComplex:
+//     "distance(vec2(${feature['cesium#longitude']}, ${feature['cesium#latitude']}), vec2(144.96007, -37.82249))",
+//   },
+//   color: {
+//     conditions: [
+//       ["${wikidata} === 'Q60046490'", "color('#d65c5c')"],
+//       ["${elementId} === 392375195", "color('#d65c5c')"],
+//     ],
+//   },
+//   show: "${feature['building']} !== 'residential' || ${feature['building']} !== 'apartments'",
+// });
 
 // 
 const selectedEntity = new Entity();
@@ -93,8 +93,6 @@ nameOverlay.style.left = "0";
 nameOverlay.style["pointer-events"] = "none";
 nameOverlay.style.padding = "4px";
 nameOverlay.style.backgroundColor = "black";
-
-
 viewer.screenSpaceEventHandler.setInputAction((movement) => {
   const pickedFeature = viewer.scene.pick(movement.position);
   if (pickedFeature == undefined) {
