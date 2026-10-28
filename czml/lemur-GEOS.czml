@@ -5781,6 +5781,9 @@
         -445524.40698746976
       ]
     },
+    "orientation": {
+      "test": true
+    },
     "model": {
       "show": true,
       "uri": "",

@@ -3,6 +3,10 @@ import {
   CallbackProperty,
   Color,
   Cesium3DTileset,
+  HeadingPitchRoll,
+  Transforms,
+  Math,
+  defined
 } from "cesium";
 import {
   GroundStation
@@ -20,6 +24,21 @@ function getGEOSInView(inViewProperty, viewer) {
   }, false);
 }
 
+
+
+function orientationCallback(entity) {
+  
+  return new CallbackProperty((time) => {
+    const posn = entity.position.getValue(time);
+    const HPR = new HeadingPitchRoll(
+      Math.toRadians(0), // heading / yaw
+      Math.toRadians(180), // pich
+      Math.toRadians(0) // roll
+    );
+    return Transforms.headingPitchRollQuaternion(posn, HPR);
+  }, false);
+}
+
 export async function loadGEOSAsset(geosSatEntity, inViewProperty, viewer) {
   try {
     const geosIonResource = await IonResource.fromAssetId(
@@ -28,6 +47,7 @@ export async function loadGEOSAsset(geosSatEntity, inViewProperty, viewer) {
     geosSatEntity.model.uri = geosIonResource;
     geosSatEntity.model.scale = 10.0;
     geosSatEntity.model.color = getGEOSInView(inViewProperty, viewer);
+    geosSatEntity.orientation = orientationCallback(geosSatEntity);
   } catch (error) {
     console.log("fn: loadGEOSAsset: Failure loading in GEOS 3d asset.");
   }
