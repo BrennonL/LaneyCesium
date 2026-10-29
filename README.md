@@ -20,7 +20,7 @@ using [pyCote](https://github.com/starbelt/pyCote) (a python satellite simulator
 This simulation calculated when the GEOS satellite was in view and out of view
 of the lemur's camera by converting the lemur and GEOS eci coordinates into 
 NED (North, East, Down) with respect to the 
-lemur's coordinates. Then utilizing triginomitry, the GEOS's angle with respect to
+lemur's coordinates. Then utilizing trigonometry, the GEOS's angle with respect to
 lemur's zenith was calculated. When the GEOS satellite's north and east angle with respect lemur
 fell below the $2.5 \degree$, it created a time stamp which this project utilizes to 
 determine when to turn GEOS green.
