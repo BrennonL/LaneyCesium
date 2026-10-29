@@ -1,6 +1,12 @@
 # Introduction
 
-Many Satellites utilized AI models for filtering out repetative data, allowing scientists and engineers to focus on mission critical information. There are two options for these models; they could either be trained on Earth on synthetic data or in space. My goal is to utilize synthetic data of satellites obvserving the Earth and other satellites, to train these models. For the purpose of the Cesium certificate I produced a simulation of two satellites showcasing field of view and downlink connections.
+Many satellites utilized AI models for filtering out repetative data, allowing
+scientists and engineers to focus on mission critical information. There are 
+two options for these models; they could either be trained on Earth on synthetic 
+data or in space. My goal is to utilize synthetic data of satellites obvserving 
+the Earth and other satellites, to train these models. For the purpose of the 
+Cesium certificate I produced a simulation of two satellites showcasing field 
+of view and downlink connections.
 
 A simulated geocentric lemur satellite with a FaintStar2 camera (FOV angle 
 of $5.5 \degree \times 5.5 \degree$) monitoring in the zenith direction. When 
@@ -12,12 +18,12 @@ between the ground stations and the satellites.
 The czml file located in the [czml](./czml/lemur-GEOS.czml) folder was generated
 using [pyCote](https://github.com/starbelt/pyCote) (a python satellite simulator).
 This simulation calculated when the GEOS satellite was in view and out of view
-of the lemur's camera. It did this by converting the lemur eci coordinate into 
-NED (North, East, Down) and the GEOS satellite into NED with respect to the 
-lemur satellite. Then utilizing triginomitry, the GEOS's angle with respect to
-lemur's zenith was calculated. It logged when this angle was smaller than the 
-FaintStar2 camera FOV.
-
+of the lemur's camera by converting the lemur and GEOS eci coordinates into 
+NED (North, East, Down) with respect to the 
+lemur's coordinates. Then utilizing triginomitry, the GEOS's angle with respect to
+lemur's zenith was calculated. When the GEOS satellite's north and east angle with respect lemur
+fell below the $2.5 \degree$, it created a time stamp which this project utilizes to 
+determine when to turn GEOS green.
 # Usage
 
 ## Initialization
