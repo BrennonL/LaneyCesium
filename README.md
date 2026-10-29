@@ -1,13 +1,5 @@
 # Introduction
 
-Many satellites utilized AI models for filtering out repetative data, allowing
-scientists and engineers to focus on mission critical information. There are 
-two options for these models; they could either be trained on Earth on synthetic 
-data or in space. My goal is to utilize synthetic data of satellites obvserving 
-the Earth and other satellites, to train these models. For the purpose of the 
-Cesium certificate I produced a simulation of two satellites showcasing field 
-of view and downlink connections.
-
 A simulated geocentric lemur satellite with a FaintStar2 camera (FOV angle 
 of $5.5 \degree \times 5.5 \degree$) monitoring in the zenith direction. When 
 the satellite GEOS 14 falls into view of the lemur satellite it is highlighted 
