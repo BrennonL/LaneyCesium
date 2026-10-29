@@ -1,7 +1,5 @@
 # Introduction
 
-Due to increasingly large number of satellites
-
 Many Satellites utilized AI models for filtering out repetative data, allowing scientists and engineers to focus on mission critical information. There are two options for these models; they could either be trained on Earth on synthetic data or in space. My goal is to utilize synthetic data of satellites obvserving the Earth and other satellites, to train these models. For the purpose of the Cesium certificate I produced a simulation of two satellites showcasing field of view and downlink connections.
 
 A simulated geocentric lemur satellite with a FaintStar2 camera (FOV angle 
